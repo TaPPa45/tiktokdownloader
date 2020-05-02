@@ -1,8 +1,9 @@
-{% extends "global.html" %} {% load static %} {% block content %}
+{% extends "global.html" %} {% load compress %} {% block content %}
+
 <div class="container">
     <div class="main-header">
         <h1>ИНДЕКС</h1>
-        <img src="{% static 'images/Logo.png' %}" alt="">
+        <img src="{{ STATIC_URL }}images/Logo.png" alt="">
         <div> base: {{base_dir}} </div>
         <div> home: {{home_dir}} </div>
         <div>media: {{rel_media}} </div>

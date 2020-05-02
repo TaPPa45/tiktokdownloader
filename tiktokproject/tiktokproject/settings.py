@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'web',
+    'compressor',
 ]
 
 MIDDLEWARE = [
@@ -129,5 +130,55 @@ MEDIA_URL = '/m/'
 STATIC_URL = '/m/static/'
 
 
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            rel_base('templates'),
+        ],
+        'APP_DIRS': False,
+        'OPTIONS': {
+            'context_processors': [
+                # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
+                # list if you haven't customized them:
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.request',
+                'django.template.context_processors.media',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.static',
+                # 'django.template.context_processors.debug',
+                # 'django.template.context_processors.tz',
+                # 'django.contrib.messages.context_processors.messages',
+            ],
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+            ]
+        },
+    },
+]
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+
+# Django compressor
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
+COMPRESS_ENABLED = True
+COMPRESS_URL = MEDIA_URL
+COMPRESS_CSSTIDY_BINARY = '/home/dimadev/media/CACHE/css'
+COMPRESS_CSSTIDY_ARGUMENTS = '--template=highest --sort_properties=false --sort_selectors=false --merge_selectors=1'
+
+
+COMPRESS_CSS_FILTERS = ['compressor.filters.css_default.CssAbsoluteFilter', 'compressor.filters.datauri.CssDataUriFilter', # 'compressor.filters.csstidy.CSSTidyFilter',
+                         'compressor.filters.yui.YUICSSFilter']
+COMPRESS_YUI_BINARY = 'java -jar /usr/share/yui-compressor/yui-compressor.jar'
+
+COMPRESS_PRECOMPILERS = (
+    ('text/less', '/usr/bin/lessc {infile} {outfile}'),
+    #('text/coffeescript', '/home/portal/bin/node /home/portal/node_modules/.bin/coffee --compile --stdio')
+)
