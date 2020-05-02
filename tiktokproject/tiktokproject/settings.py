@@ -11,9 +11,14 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(__file__)
+HOME_DIR = str(Path.home())
+
+rel_base = lambda *args: os.path.join(BASE_DIR, *args)
+rel_home = lambda *args: os.path.join(HOME_DIR, *args)
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +30,7 @@ SECRET_KEY = '*rd^sr7gm%jncvz08@tv(vk2n)+w^bn&p&w37q636p=g0gvtd#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['dev.shtampik52.ru', 'dev2.shtampik52.ru', 'shtampik52.ru', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -37,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'web',
 ]
 
 MIDDLEWARE = [
@@ -114,12 +120,8 @@ USE_L10N = True
 USE_TZ = True
 
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-HOME_DIR = os.path.dirname(BASE_DIR)
 
-rel_base = lambda *args: os.path.join(BASE_DIR, *args)
-rel_home = lambda *args: os.path.join(HOME_DIR, *args)
-
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 MEDIA_ROOT = rel_home('media')
 COMPRESS_ROOT = rel_home('media')
 STATIC_ROOT = rel_home('media', 'static')
