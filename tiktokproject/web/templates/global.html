@@ -2,28 +2,47 @@
 
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
+{% block seo %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Бутстрап -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    {% block links %}
-    <!-- Основной стиль -->
-    {% compress css %}
-    <link type="text/less" rel="stylesheet" href="{{ STATIC_URL }}less/style.less" charset="utf-8">
-    {% endcompress %}
-    {% endblock links %}
-    <title>Очередь</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">    
+{% endblock %}
+    {% block title %}
+        <title>Tiktok downloader</title>
+    {% endblock%}
 </head>
-<body>
-    
+<body style="">
+    {% block css %}
+        {% compress css %}
+            <link type="text/less" rel="stylesheet" href="{{ STATIC_URL }}less/fonts.less" charset="utf-8"> 
+            <link type="text/less" rel="stylesheet" href="{{ STATIC_URL }}less/style.less" charset="utf-8"> 
+        {% endcompress %} 
+    {% endblock %}
+    <div class="header-line vertical-center-child row">
+        {% block logo %}
+            <div class="header-line__logo-wrapper">
+                <img class="header-line__logo" src="{{ STATIC_URL }}images/Logo.png" alt="">
+            </div>
+        {% endblock %}
+        {% block sitename %}
+            <div class="header-line__sitename">TIK TOK DOWNLOADER</div>
+        {% endblock %}
+            <div class="header-line__dropdown vertical-center-child row">
+                <div class="dropdown__text">
+                    <p>OTHER OUR'S </p>
+                    <p>PROJECTS</p>
+                </div>
+                <div class="dropdown__icon">
+                    &#9660;
+                </div>
+            </div>
+    </div>
     {% block content %}
-    
     {% endblock content %}
-
     {% block scripts %}
-    
     {% endblock scripts %}
 </body>
+
 </html>

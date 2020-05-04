@@ -1,5 +1,124 @@
 @color: rgb(66, 30, 63);
-
+@textColor: #efefef;
+@fontSofia: "SofiaPro", sans-serif;
+@fontSofiaBold: "SofiaProBold, sans-serif";
+p{
+    margin: 0;
+}
+button,a,input:focus{    
+    outline: none;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+}
+.vertical-center-child{
+    display: flex;
+    align-items: center;
+}
+.horisontal-center-child{
+    display: flex;
+    justify-content: center;
+}
 body {
-    background-color: @color;
+    background:radial-gradient(#380c21,#0c0b16);
+    color: @textColor;
+    font-family:@fontSofia;
+    background-attachment: fixed;
+    margin: 0;
+}
+.header-line{
+    height: 80px;
+    margin: 10px 200px;
+}
+.header-line__logo-wrapper{
+    height: 80px;
+}
+.header-line__sitename{
+    font-size: 48px;
+    padding-left: 20px;
+    flex-grow: 1;
+    font-weight: 700;
+}
+.header-line__logo{
+    height: inherit;
+}
+.header-line__dropdown{
+    cursor: pointer;
+}
+.dropdown__text{
+    font-size: 14px;
+}
+.dropdown__icon{
+    padding-left: 10px;
+}
+.download-form__wrapper{
+    margin-top: 100px;
+    height: 350px;
+}
+.download-form{
+    
+}
+.download-form__text{
+    margin-bottom: 10px;
+}
+.form-input__wrapper{
+    width: 631px;
+    height: 60px;
+    background-image: linear-gradient(-20deg, #091f3f 0%, #25f3ed 0%, #fd2b55 100%);
+}
+.form-input{
+    width: 610px;
+    height: 50px;
+    padding-left: 15px;
+    background-color: #fefefe;
+    border:none;
+    font-size: 22px;
+    font-family:@fontSofia;
+    
+}
+.form-button__wrapper{
+    margin-top: 25px;
+}
+.form-button{
+    width: 208px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #d45877;
+    border: 1px solid #fefefe;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    color: #fefefe;
+    &:hover{
+        cursor: pointer;
+        color: #000000;
+        background-color: #25f4ee;
+    }
+}
+.trending-videos__wrapper{
+    margin-top: 100px;
+    background-color: rgba(0,0,0,0.2);
+}
+.trending-videos_text__wrapper{
+    text-align: center;
+}
+
+.trending-videos__bigtext{
+    margin-top: 30px;
+    font-size: 36px;
+}
+.trending-videos__smalltext{
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+.trending-videos{
+    height: 750px;
+    background: #fefefe;
+    margin: 50px 300px;
 }

@@ -1,0 +1,13 @@
+
+
+.font(@fontName; @urlName: @fontName; @weight: normal; @style: normal) {
+    font-family: '@{fontName}';
+    src: url('../fonts/@{urlName}.eot'),    
+    url('../fonts/@{urlName}.ttf') format('truetype');
+    font-weight: @weight;
+    font-style: @style;
+  }
+  @fontRegular: 'SofiaPro';
+  @font-face {
+    .font(@fontRegular);
+  }
