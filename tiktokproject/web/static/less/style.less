@@ -24,12 +24,17 @@ button,a,input:focus{
     display: flex;
     justify-content: center;
 }
+.horisontal-around-child{
+    display: flex;
+    justify-content: space-around;
+}
 body {
     background:radial-gradient(#380c21,#0c0b16);
     color: @textColor;
     font-family:@fontSofia;
     background-attachment: fixed;
     margin: 0;
+    
 }
 .header-line{
     height: 80px;
@@ -48,7 +53,7 @@ body {
     height: inherit;
 }
 .header-line__dropdown{
-    cursor: pointer;
+    
 }
 .dropdown__text{
     font-size: 14px;
@@ -95,17 +100,15 @@ body {
     text-align: center;
     color: #fefefe;
     &:hover{
-        cursor: pointer;
         color: #000000;
         background-color: #25f4ee;
     }
 }
 .block-content__wrapper{
     margin-top: 100px;
+    padding-bottom: 50px;
 }
-.substrate{
-    background-color: rgba(0,0,0,0.2);
-}
+
 .block-content_text__wrapper{
     text-align: center;
 }
@@ -123,4 +126,27 @@ body {
     height: 750px;
     background: #fefefe;
     margin: 50px 300px;
+}
+.video-item{
+    background-color: #fefefe;
+    width: 300px;
+    height: 600px;
+}
+.faq-item{
+    flex-basis: 600px;
+}
+
+
+// basic classes
+.hide{
+    display: none;
+}
+.substrate{
+    background-color: rgba(0,0,0,0.2);
+}
+.pointer{
+    cursor: pointer;
+}
+.indent{
+    margin:0 200px;
 }

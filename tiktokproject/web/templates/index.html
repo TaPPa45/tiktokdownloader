@@ -8,7 +8,7 @@
             <input class="form-input" type="text" placeholder="https://www.tiktok.com/@kyliejenner/video...">
         </div>
         <div class="form-button__wrapper">
-            <button class="form-button">DOWNLOAD</button>
+            <button class="form-button pointer">DOWNLOAD</button>
         </div>
     </div>
 </div>
@@ -29,7 +29,15 @@
             LAST DOWNLOADED TIKTOK VIDEOS WITHOUT WATERMARKS
         </div>
     </div>
-    <div class="trending-videos"></div>
+    <div style="margin-top: 50px;" class=" horisontal-center-child row indent horisontal-around-child">
+        <div class="video-item"></div>
+        <div class="video-item"></div>
+        <div class="video-item"></div>
+        <div class="video-item substrate horisontal-center-child vertical-center-child column pointer">
+            <p>⚪⚪⚪</p>
+            <p style="font-size: 24px;">MORE</p>
+        </div>
+    </div>
 </div>
 <div class="block-content__wrapper horisontal-center-child column">
     <div class="block-content_text__wrapper">
@@ -39,7 +47,58 @@
             <p>IN MP4 WITHOUT WATERMARKS AND REGISTER</p>
         </div>
     </div>
-    <div class="trending-videos"></div>
+    <div class="row horisontal-center-child indent horisontal-around-child">
+        <div class="faq-item column ">
+            <div class="block-content__bigtext" style="font-size: 50px; text-align: left;">➀</div>
+            <div style="text-align: left;" class="block-content__smalltext">COPY VIDEO SHARE LINK ON TIKTOK WEB SITE OR TIKTOK APP</div>
+            <div style="margin-top: 20px;border: 3px solid #fe2c55;">
+                <img src="{{ STATIC_URL }}images/faq1.png" alt="">
+            </div>
+        </div>
+        <div class="faq-item column">
+            <div class="block-content__bigtext" style="font-size: 50px; text-align: left;">➁</div>
+            <div style="text-align: left;" class="block-content__smalltext">PASTE LINK TO TEXT BOX AND PRESS DOWNLOAD</div>
+            <div style="margin-top: 20px;border: 3px solid #fe2c55;">
+                <img src="{{ STATIC_URL }}images/faq2.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="block-content__wrapper horisontal-center-child column">
+    <div class="block-content_text__wrapper">
+        <div class="block-content__bigtext">FAQ</div>
+        <div class="block-content__smalltext">
+            <p>Here are the most popular questions</p>
+            <p>regarding our service.</p>
+        </div>
+    </div>
+    <div class="row horisontal-center-child indent horisontal-around-child">
+        <div class="faq-item column ">
+            <div class="block-content__bigtext" style="font-size: 50px; text-align: left;">➀</div>
+            <div style="text-align: left;" class="block-content__bigtext">How to download Tik Tok video without watermark?</div>
+            <div style="text-align: left;" class="block-content__smalltext">Paste the Tik Tok video link on the main page of our website and click the "Download" button. When the link is processed, you will see a videopreview and download links. Choose the one you need</div>
+
+        </div>
+        <div class="faq-item column">
+            <div class="block-content__bigtext" style="font-size: 50px; text-align: left;">➁</div>
+            <div style="text-align: left;" class="block-content__bigtext">Where to get the Tik Tok video link?</div>
+            <div style="text-align: left;" class="block-content__smalltext">If you use a Tik Tok app, open a single video and then press "Share" icon at the right of the screen. Then press "Copy link". If you are viewing a video from desktop browser, find "Copy link" button at the bottom and click it</div>
+
+        </div>
+    </div>
+    <div class="row horisontal-center-child indent horisontal-around-child">
+        <div class="faq-item column ">
+            <div class="block-content__bigtext" style="font-size: 50px; text-align: left;">➂</div>
+            <div style="text-align: left;" class="block-content__bigtext">Where is my video saved after downloading?</div>
+            <div style="text-align: left;" class="block-content__smalltext">Your video is usually saved to "Downloads" folder when you use a desktop browser. If you use an app, you will find your downloaded video in media gallery.</div>
+        </div>
+        <div class="faq-item column">
+            <div class="block-content__bigtext" style="font-size: 50px; text-align: left;">➃</div>
+            <div style="text-align: left;" class="block-content__bigtext">How to save a Tik Tok video to iPhone or iPad?</div>
+            <div style="text-align: left;" class="block-content__smalltext">It's a bit complicated. Default browsers do now support downloading when you use iPhone or iPad. Open AppStore and download "Documents by Readdle" app. Run the app and find a browser icon. This browser allows downloading.</div>
+
+        </div>
+    </div>
 </div>
 {% endblock content %} {% block scripts %}
 <script>
