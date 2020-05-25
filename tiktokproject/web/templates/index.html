@@ -5,10 +5,10 @@
     </div>
     <div class="download-form vertical-center-child column">
         <div class="form-input__wrapper vertical-center-child horisontal-center-child">
-            <input class="form-input" type="text" placeholder="https://www.tiktok.com/@kyliejenner/video...">
+            <input class="form-input" type="text" placeholder="https://www.tiktok.com/@UserName/video...">
         </div>
         <div class="form-button__wrapper">
-            <button class="form-button pointer">DOWNLOAD</button>
+            <button onclick="getVideoUrl()" class="form-button pointer">DOWNLOAD</button>
         </div>
     </div>
 </div>
@@ -100,7 +100,50 @@
         </div>
     </div>
 </div>
-{% endblock content %} {% block scripts %}
+{%csrf_token%} {% endblock content %} {% block scripts %}
 <script>
+    function getVideoUrl() {
+        let videoUrl = document.querySelector('.form-input').value
+        const request = new XMLHttpRequest();
+        const url = "api-prepare_videourl/";
+
+        fetch(url, {
+            method: "POST",
+            body: videoUrl,
+            headers: {
+                "content-type": "text/plain",
+                'X-CSRFToken': getCookie('csrftoken'),
+            }
+        })
+
+        .then((response) => {
+                if (response.status !== 200) {
+                    return Promise.reject()
+                }
+                return response.text()
+            })
+            .then(href => window.open(href, '_blank').focus())
+            .catch(() => console.log(''));
+    }
+
+    function getCookie(name) {
+        var cookie = " " + document.cookie;
+        var search = " " + name + "=";
+        var setStr = null;
+        var offset = 0;
+        var end = 0;
+        if (cookie.length > 0) {
+            offset = cookie.indexOf(search);
+            if (offset != -1) {
+                offset += search.length;
+                end = cookie.indexOf(";", offset)
+                if (end == -1) {
+                    end = cookie.length;
+                }
+                setStr = unescape(cookie.substring(offset, end));
+            }
+        }
+        return (setStr);
+    }
 </script>
 {% endblock scripts %}

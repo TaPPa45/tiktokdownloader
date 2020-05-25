@@ -20,7 +20,7 @@ HOME_DIR = str(Path.home())
 rel_base = lambda *args: os.path.join(BASE_DIR, *args)
 rel_home = lambda *args: os.path.join(HOME_DIR, *args)
 
-
+ROOT_URLCONF = 'tiktokproject.urls'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'web',
     'compressor',
+    'api',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +57,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'tiktokproject.urls'
 
 TEMPLATES = [
     {
