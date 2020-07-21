@@ -18,7 +18,7 @@ class GetVideoUrl(View):
         'Content-Type': 'text/html; charset=utf-8',
         'Range': 'bytes=0-200000',
     }
-    TIKTOK_URL_PATTERN = re.compile(r'^((https|http)://.+\.tiktok\.com\/@[a-zA-Z0-9]+/video/[\d]+)$')
+    TIKTOK_URL_PATTERN = re.compile(r'^((https|http)://.+\.tiktok\.com\/@[a-zA-Z0-9\-\_]+/video/[\d]+)$')
     
     def dispatch(self, request, *args, **kwargs):
         if request.method == 'POST' and self.TIKTOK_URL_PATTERN.match(request.body.decode('utf-8')):
@@ -48,7 +48,7 @@ class GetVideoUrl(View):
         if content_url:
             video_id = self._get_video_id(content_url)
             if video_id:
-                video_url = "https://api2.musical.ly/aweme/v1/playwm/?video_id=%s" %(video_id)
+                video_url = "https://api.tiktokv.com/aweme/v1/playwm/?video_id=%s" %(video_id)
                 return HttpResponse(video_url, content_type="text/plain", status=200)
         return HttpResponse("Видео не найдено проверьте ссылку", content_type="text/plain", status=400)
 
