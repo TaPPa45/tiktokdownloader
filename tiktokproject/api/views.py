@@ -18,7 +18,7 @@ class GetVideoUrl(View):
         'Content-Type': 'text/html; charset=utf-8',
         'Range': 'bytes=0-200000',
     }
-    TIKTOK_URL_PATTERN = re.compile(r'^((https|http)://.+\.tiktok\.com\/@[a-zA-Z0-9\-\_]+/video/[\d]+)$')
+    TIKTOK_URL_PATTERN = re.compile(r'^((https|http)://.+\.tiktok\.com\/@[a-zA-Z0-9\-\_\.]+/video/[\d]+)$')
     
     def dispatch(self, request, *args, **kwargs):
         if request.method == 'POST' and self.TIKTOK_URL_PATTERN.match(request.body.decode('utf-8')):
